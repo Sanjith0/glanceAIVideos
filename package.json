@@ -1,7 +1,7 @@
 {
-  "name": "glance-film",
+  "name": "glance-launch-film",
   "version": "1.0.0",
-  "description": "My Remotion video",
+  "description": "Glance \u2014 20-second first-person launch film (Remotion + Three.js)",
   "repository": {},
   "license": "UNLICENSED",
   "engines": {
@@ -9,21 +9,33 @@
   },
   "private": true,
   "dependencies": {
+    "@react-three/fiber": "9.8.2",
     "@remotion/cli": "4.0.538",
+    "@remotion/fonts": "4.0.538",
+    "@remotion/media": "4.0.538",
+    "@remotion/three": "4.0.538",
+    "geist": "^1.8.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "remotion": "4.0.538"
+    "remotion": "4.0.538",
+    "three": "0.186.1"
   },
   "devDependencies": {
     "@remotion/eslint-config-flat": "4.0.538",
     "@types/react": "19.2.7",
+    "@types/three": "^0.186.0",
     "@types/web": "0.0.166",
     "eslint": "10.12.0",
     "prettier": "3.8.1",
+    "tsx": "^4.23.15",
     "typescript": "5.9.3"
   },
   "scripts": {
     "dev": "remotion studio",
+    "render": "remotion render GlanceFilm out/glance.mp4",
+    "frames": "remotion render GlanceFilm out/frames --image-format=png --frames=15,120,175,270,355,420,483,500,520,630,738,789,860",
+    "audio": "tsx scripts/make-audio.ts",
+    "check:gait": "tsx scripts/ik-test.ts",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc"
